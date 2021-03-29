@@ -31,15 +31,15 @@ Tgraph = Client(
 
 @Tgraph.on_message(filters.photo)
 async def uploadphoto(client, message):
-  msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
+  msg = await message.reply_text("`SEDANG MELAKUKAN Dᴏᴡɴʟᴏᴀᴅ`")
   userid = str(message.chat.id)
   img_path = (f"./DOWNLOADS/{userid}.jpg")
   img_path = await client.download_media(message=message, file_name=img_path)
-  await msg.edit_text("`Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....`")
+  await msg.edit_text("`Uᴘʟᴏᴀᴅ FILE.....`")
   try:
     tlink = upload_file(img_path)
   except:
-    await msg.edit_text("`Something went wrong`") 
+    await msg.edit_text("`Sedang Ada Kesalahan`") 
   else:
     await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
     os.remove(img_path) 
@@ -47,36 +47,36 @@ async def uploadphoto(client, message):
 @Tgraph.on_message(filters.animation)
 async def uploadgif(client, message):
   if(message.animation.file_size < 5242880):
-    msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
+    msg = await message.reply_text("`SEDANG MELAKUKAN Dᴏᴡɴʟᴏᴀᴅ`")
     userid = str(message.chat.id)
     gif_path = (f"./DOWNLOADS/{userid}.mp4")
     gif_path = await client.download_media(message=message, file_name=gif_path)
-    await msg.edit_text("`Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....`")
+    await msg.edit_text("`Uᴘʟᴏᴀᴅ FILE.....`")
     try:
       tlink = upload_file(gif_path)
       await msg.edit_text(f"https://telegra.ph{tlink[0]}")   
       os.remove(gif_path)   
     except:
-      await msg.edit_text("Something really Happend Wrong...") 
+      await msg.edit_text("Terjadi Kesalahan...") 
   else:
-    await message.reply_text("Size Should Be Less Than 5 mb")
+    await message.reply_text("Ukuran File Tidak Boleh Melebihi 5 mb")
 
 @Tgraph.on_message(filters.video)
 async def uploadvid(client, message):
   if(message.video.file_size < 5242880):
-    msg = await message.reply_text("`Tʀʏɪɴɢ Tᴏ Dᴏᴡɴʟᴏᴀᴅ`")
+    msg = await message.reply_text("`Mencoba MENDᴏᴡɴʟᴏᴀᴅ`")
     userid = str(message.chat.id)
     vid_path = (f"./DOWNLOADS/{userid}.mp4")
     vid_path = await client.download_media(message=message, file_name=vid_path)
-    await msg.edit_text("`Tʀʏɪɴɢ Tᴏ Uᴘʟᴏᴀᴅ.....`")
+    await msg.edit_text("`Uᴘʟᴏᴀᴅ FILE.....`")
     try:
       tlink = upload_file(vid_path)
       await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
       os.remove(vid_path)   
     except:
-      await msg.edit_text("Something really Happend Wrong...") 
+      await msg.edit_text("Sedang Terjadi Suatu Masalah...") 
   else:
-    await message.reply_text("Size Should Be Less Than 5 mb")
+    await message.reply_text("Ukuran File Tidak Boleh Melebihi 5 mb")
 
 @Tgraph.on_message(filters.command(["start"]))
 async def home(client, message):
@@ -85,19 +85,19 @@ async def home(client, message):
         InlineKeyboardButton('Close', callback_data='close')
     ],
     [
-        InlineKeyboardButton('Our Channel', url='http://telegram.me/indusbots'),
-        InlineKeyboardButton('Source Code', url='https://github.com/benchamxd/Telegraph-Uploader')
+        InlineKeyboardButton('Our Channel', url='http://telegram.me/cyntaxrobot'),
+        InlineKeyboardButton('Source Code Ind', url='https://github.com/AntXpras/Telegraph-Uploader')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
         chat_id=message.chat.id,
-        text="""<b>Hey there,
+        text="""<b>Hallo Guys,
         
 im a telegraph Uploader That Can Upload Photo, Video And Gif
         
 Simply send me photo, video or gif to upload to Telegra.ph
         
-Made With Love By @indusBots</b>""",
+Made With Love By @indusBots / Dan Modifikasi File Ind mode by @Xpras_id</b>""",
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
@@ -110,16 +110,16 @@ async def help(client, message):
         InlineKeyboardButton('Close', callback_data='close')
     ],
     [
-        InlineKeyboardButton('Our Channel', url='http://telegram.me/indusbots')
+        InlineKeyboardButton('Our Channel', url='http://telegram.me/cyntaxrobot')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
         chat_id=message.chat.id,
-        text="""There Is Nothung To KnowMore,
+        text="""Ada yang bisa saya Bantu??,
         
-Just Send Me A Video/gif/photo Upto 5mb.
+Kirimkan Saya Video/gif/photo Upto 5mb.
 
-i'll upload ut to telegra.ph and give you the direct link""",
+Setelah itu saya akan melakukan upload file ke telegra.ph Dan memberikanmu Link File tersebut""",
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
