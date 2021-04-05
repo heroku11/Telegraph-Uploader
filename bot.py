@@ -35,7 +35,7 @@ async def uploadphoto(client, message):
   userid = str(message.chat.id)
   img_path = (f"./DOWNLOADS/{userid}.jpg")
   img_path = await client.download_media(message=message, file_name=img_path)
-  await msg.edit_text("🅤🅟🅛🅞🅐🅓 🅕🅘🅛🅔")
+  await msg.edit_text("🅓🅞🅦🅝🅛🅞🅐🅓 🅕🅘🅛🅔")
   try:
     tlink = upload_file(img_path)
   except:
