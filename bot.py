@@ -31,11 +31,11 @@ Tgraph = Client(
 
 @Tgraph.on_message(filters.photo)
 async def uploadphoto(client, message):
-  msg = await message.reply_text("`SEDANG MELAKUKAN Dᴏᴡɴʟᴏᴀᴅ`")
+  msg = await message.reply_text(" ⚡️ ")
   userid = str(message.chat.id)
   img_path = (f"./DOWNLOADS/{userid}.jpg")
   img_path = await client.download_media(message=message, file_name=img_path)
-  await msg.edit_text("`Uᴘʟᴏᴀᴅ FILE.....`")
+  await msg.edit_text("`MENGUNGGAH FILE.....`")
   try:
     tlink = upload_file(img_path)
   except:
