@@ -35,13 +35,14 @@ async def uploadphoto(client, message):
   userid = str(message.chat.id)
   img_path = (f"./DOWNLOADS/{userid}.jpg")
   img_path = await client.download_media(message=message, file_name=img_path)
-  await msg.edit_text("`MENGUNGGAH FILE.....`")
+  await msg.edit_text("🅤🅟🅛🅞🅐🅓 🅕🅘🅛🅔")
   try:
     tlink = upload_file(img_path)
   except:
     await msg.edit_text("`Sedang Ada Kesalahan`") 
   else:
-    await msg.edit_text(f"https://telegra.ph{tlink[0]}")     
+    await msg.edit_text(f"https://telegra.ph{tlink[0]} n\
+")     
     os.remove(img_path) 
 
 @Tgraph.on_message(filters.animation)
@@ -51,7 +52,7 @@ async def uploadgif(client, message):
     userid = str(message.chat.id)
     gif_path = (f"./DOWNLOADS/{userid}.mp4")
     gif_path = await client.download_media(message=message, file_name=gif_path)
-    await msg.edit_text("`Uᴘʟᴏᴀᴅ FILE.....`")
+    await msg.edit_text("🅤🅟🅛🅞🅐🅓 🅕🅘🅛🅔")
     try:
       tlink = upload_file(gif_path)
       await msg.edit_text(f"https://telegra.ph{tlink[0]}")   
@@ -85,8 +86,8 @@ async def home(client, message):
         InlineKeyboardButton('Close', callback_data='close')
     ],
     [
-        InlineKeyboardButton('Our Channel', url='http://telegram.me/cyntaxrobot'),
-        InlineKeyboardButton('Source Code Ind', url='https://github.com/AntXpras/Telegraph-Uploader')
+        InlineKeyboardButton('Our Channel', url='http://telegram.me/BoxFilmsInd'),
+        InlineKeyboardButton('Contact', url='http://t.me/Ezykhielpmbot')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
@@ -97,7 +98,10 @@ im a telegraph Uploader That Can Upload Photo, Video And Gif
         
 Simply send me photo, video or gif to upload to Telegra.ph
         
-Made With Love By @indusBots / Dan Modifikasi File Ind mode by @Xpras_id</b>""",
+Made With Love By @Xpras_id</b>
+
+
+🔸🔸 Before that, I want to apologize because the language I use is a mixture of Indonesian and English. because I am afraid that if I use one language there will be people who do not understand it :(""",
         reply_markup=reply_markup,
         parse_mode="html",
         reply_to_message_id=message.message_id
@@ -110,7 +114,7 @@ async def help(client, message):
         InlineKeyboardButton('Close', callback_data='close')
     ],
     [
-        InlineKeyboardButton('Our Channel', url='http://telegram.me/cyntaxrobot')
+        InlineKeyboardButton('Our Channel', url='http://telegram.me/BoxFilmsInd')
     ]]
   reply_markup = InlineKeyboardMarkup(buttons)
   await Tgraph.send_message(
